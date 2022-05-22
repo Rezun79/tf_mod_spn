@@ -1,9 +1,9 @@
 
 data "azuread_service_principal" "example" {
-  object_id = azuread_application.example.application_id
+  application_id = azuread_application.example.application_id
 }
 output "spn_id" {
-  object_id = data.azuread_service_principal.example.application_id
+  value = data.azuread_service_principal.example.application_id
 }
 
 output "spn_secret" {

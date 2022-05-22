@@ -6,6 +6,10 @@ output "spn_id" {
   value = data.azuread_service_principal.example.application_id
 }
 
+# output "spn_secret" {
+#     value = azuread_service_principal_password.example.value
+# }
+
 output "spn_secret" {
-    value = azuread_service_principal_password.example.value
+    value = azuread_application_password.example.value
 }

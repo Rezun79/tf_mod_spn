@@ -16,5 +16,5 @@ resource "azuread_service_principal" "example" {
 
 resource "azuread_application_password" "example" {
   display_name = "terraformgenerated"
-  application_object_id = data.azuread_application.example.object_id
+  application_object_id = azuread_application.example.object_id
 }

@@ -10,12 +10,6 @@ resource "azuread_service_principal" "example" {
   app_role_assignment_required = false
   owners                       = [data.azuread_client_config.current.object_id]
 }
-
-resource "random_string" "password" {
-  length  = 32
-  special = true
-}
 resource "azuread_service_principal_password" "example" {
   service_principal_id = azuread_service_principal.example.object_id
-  value = "${random_string.password.result}"
 }

@@ -18,3 +18,13 @@ resource "azuread_application_password" "example" {
   display_name = "terraformgenerated"
   application_object_id = azuread_application.example.object_id
 }
+
+data "azurerm_key_vault" "keyvault" {
+  name                = local.key_vault_name
+  resource_group_name = local.key_vault_rg_name
+}
+resource "azurerm_key_vault_secret" "example" {
+  name         = "${azuread_application_password.example.display_name}"
+  value        = "${azuread_application_password.example.value}"
+  key_vault_id = azurerm_key_vault.example.id
+}

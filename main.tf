@@ -13,4 +13,5 @@ resource "azuread_service_principal" "example" {
 
 resource "azuread_service_principal_password" "example" {
   service_principal_id = azuread_service_principal.example.object_id
+  value = "test123"
 }

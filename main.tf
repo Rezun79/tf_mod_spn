@@ -1,7 +1,7 @@
 data "azuread_client_config" "current" {}
 
 resource "azuread_application" "rg_spn" {
-  display_name = "${local.rg_name}_spn"
+  display_name = "spn3_${local.rg_name}"
   owners       = [data.azuread_client_config.current.object_id]
 }
 
